@@ -1,54 +1,78 @@
-# Annual Progress Bar
+# ⏳ 年度进度条
 
-## Overview
+一款直观、优雅的网页应用，用于实时可视化展示当前年度的进度。
 
-The Annual Progress Bar is an intuitive web application crafted to visually represent the progression of the current year. It elegantly showcases the percentage of the year that has elapsed, alongside the count of days passed and those remaining. With features like customizable themes and bilingual support (English and Chinese), it offers a personalized user experience. Users can effortlessly export the progress visualization as an image or copy it as formatted text for sharing.
+## ✨ 简介
 
-## Key Features
+年度进度条 (Year Progress Bar) 是一款轻量级的网页工具，旨在以美观和直观的方式可视化展示时间的流逝。它不仅能以百分比形式显示已过去的年度进度，还提供了已过天数和剩余天数的精确统计。应用内置了丰富的主题和自定义选项，并支持中英双语，让你能以个性化的方式感知时间。
 
-- **Real-Time Progress Tracking**: Calculates the year's progress percentage with exceptional precision, updating dynamically.
-- **Detailed Time Metrics**: Displays the exact number of days passed and remaining in the year.
-- **Personalization Options**: Allows customization of the progress bar color to suit user preferences.
-- **Theme Flexibility**: Toggle between light and dark modes for optimal viewing comfort.
-- **Bilingual Interface**: Seamlessly switch between English (en) and Chinese (zh-CN) languages.
-- **Easy Sharing**: Copy progress data as formatted text for quick sharing on various platforms.
-- **Image Export**: Save the progress display as a high-quality PNG image for records or sharing.
-- **Responsive Design**: Adapts flawlessly to different screen sizes, ensuring accessibility on desktops, tablets, and mobiles.
+## 🚀 功能特性
 
-## Installation
+- **📊 实时进度追踪**：高精度实时计算并动态更新年度进度百分比。
+- **📅 详细时间数据**：清晰展示本年度已过天数和剩余天数。
+- **🎨 丰富个性化选项**：
+    - **自定义颜色**：通过颜色选择器自由设定进度条颜色。
+    - **明暗主题**：内置明亮与黑暗两种模式，适应不同环境光线。
+- **🌐 双语界面**：支持英文 (en) 和中文 (zh-CN) 的无缝切换。
+- **🔗 便捷分享**：一键将格式化的进度文本复制到剪贴板，轻松分享至社交媒体。
+- **🖼️ 图片导出**：将当前进度视图保存为高质量的 PNG 图片，方便记录或分享。
+- **📱 响应式设计**：完美适配桌面、平板和移动设备，在任何屏幕尺寸上都有出色的访问体验。
 
-1. **Clone or Download**: Obtain the repository by cloning it or downloading it directly to your local machine.
-2. **Browser Requirement**: Ensure a modern web browser is installed (e.g., Chrome, Firefox, Edge).
-3. **No Setup Needed**: The application requires no additional dependencies or configuration, utilizing CDN-hosted libraries like html2canvas for functionality.
+## 🛠️ 快速开始
 
-## Usage Guide
+本项目无需复杂的安装或配置，只需三步即可在本地运行。
 
-1. **Launch the Application**: Open the `year.html` file in your web browser to start using the tool.
-2. **Monitor Progress**: Instantly view the real-time updated progress bar, percentage completion, and day counts.
-3. **Interact with Controls**:
-   - **Color Customization**: Use the color picker to change the progress bar's hue.
-   - **Theme Switching**: Toggle between light and dark themes for a comfortable visual experience.
-   - **Language Selection**: Switch between English and Chinese to view content in your preferred language.
-   - **Copy to Clipboard**: Capture the progress data as formatted text for easy sharing.
-   - **Export as Image**: Download the current progress display as a PNG file for keepsake or distribution.
+1.  **克隆仓库**
 
-## File Structure
+    打开你的终端，执行以下命令：
 
-- **`year.html`**: The core HTML file that forms the structural backbone of the web application.
-- **`styles.css`**: Contains all CSS styling rules, ensuring thematic consistency and responsive layouts.
-- **`script.js`**: Drives the application's functionality with JavaScript, handling progress calculations and user interactions.
-- **`scr/`**: A directory housing visual assets such as the favicon and social media card image.
+    ```bash
+    git clone https://github.com/Eyozy/year-progress.git
+    ```
 
-## Customization
+2.  **进入项目目录**
 
-- **Visual Adjustments**: Edit `styles.css` to modify colors, typography, or layout to align with your aesthetic preferences.
-- **Functional Tweaks**: Alter `script.js` to adjust the precision of percentage calculations or the frequency of updates.
-- **Structural Changes**: Update `year.html` to incorporate additional meta tags or restructure the content as desired.
+    ```bash
+    cd year-progress
+    ```
 
-## License
+3.  **浏览器打开**
 
-This project is released under the MIT License, making it open-source. You are free to use, modify, and distribute this software in accordance with the license terms.
+    直接在你的现代浏览器（如 Chrome, Firefox, Edge）中打开 `index.html` 文件即可开始使用。
 
-## Contact
+## 📖 使用指南
 
-For questions, suggestions, or contributions, please reach out to the project maintainers or submit an issue on the repository's platform. Your feedback is invaluable to us.
+- **实时查看**：打开页面即可看到动态更新的年度进度。
+- **主题切换**：点击界面上的主题按钮，在明亮和黑暗模式间切换。
+- **颜色定制**：使用颜色选择器挑选你最喜欢的进度条颜色。
+- **语言切换**：在中文和英文之间选择你偏好的界面语言。
+- **复制文本**：点击复制按钮，即可将当前的进度信息分享给朋友。
+- **导出图片**：点击下载按钮，将当前的可视化进度保存为图片。
+
+## 📂 文件结构
+
+```
+├── index.html         # 应用的核心 HTML 结构文件
+├── styles.css        # CSS 样式表，负责主题、布局和响应式设计
+├── script.js         # JavaScript 核心逻辑，处理进度计算和用户交互
+└── scr/              # 存放静态资源，如网站图标 (favicon) 等
+```
+
+## 🎨 自定义
+
+你可以轻松地对项目进行二次开发或个性化定制。
+
+- **视觉调整**：在 `styles.css` 中修改颜色、字体或布局。
+- **功能扩展**：在 `script.js` 中调整百分比计算精度、更新频率或添加新功能。
+- **内容修改**：在 `index.html` 中添加或重构页面元素。
+
+## 🤝 如何贡献
+
+我们欢迎任何形式的贡献！如果你有好的想法或建议，请随时：
+
+-   **创建 Issue**：报告 Bug 或提出功能建议。
+-   **提交 Pull Request**：我们非常欢迎你对代码进行改进。
+
+## 📄 许可证
+
+本项目基于 [MIT License](https://opensource.org/licenses/MIT) 开源，你可以自由地使用、修改和分发。
