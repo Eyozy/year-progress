@@ -141,6 +141,9 @@ body {
   color: var(--text-tertiary);
   margin-top: 0.5rem;
   transition: color 0.3s;
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
 }
 
 /* --- Progress Bar --- */
