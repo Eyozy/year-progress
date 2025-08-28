@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   lineHeight: "normal",
                   color: originalStyle.color,
                   textAlign: originalStyle.textAlign,
-                  verticalAlign: "middle",
+                  verticalAlign: "baseline",
                 });
               });
           }
