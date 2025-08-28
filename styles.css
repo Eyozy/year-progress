@@ -143,8 +143,9 @@ body {
   white-space: nowrap;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: center; 
+  align-items: center; 
+  line-height: 1;
   gap: 0.25em; 
 }
 
