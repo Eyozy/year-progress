@@ -330,29 +330,65 @@ document.addEventListener("DOMContentLoaded", () => {
         onclone: (clonedDoc) => {
           const clonedExportArea = clonedDoc.getElementById("export-area");
           if (clonedExportArea) {
-            // **DEEP DIVE BUG FIX: FORCE HIGH-QUALITY RENDERING**
-            Object.assign(clonedExportArea.style, {
-              transform: 'scale(1.00001) translateZ(0)', // Tiny scale/3D transform forces GPU layer promotion and better anti-aliasing.
-              transformOrigin: 'top left',
-              '-webkit-font-smoothing': 'antialiased', // Explicitly set font smoothing for WebKit browsers.
-              'font-kerning': 'normal', // Ensure consistent kerning.
-            });
+        // Force high-quality rendering
+        Object.assign(clonedExportArea.style, {
+          transform: 'scale(1.00001) translateZ(0)',
+          transformOrigin: 'top left',
+          '-webkit-font-smoothing': 'antialiased',
+          'font-kerning': 'normal',
+        });
 
-            clonedExportArea.style.backgroundColor = finalBgColor;
-            clonedExportArea.querySelectorAll('#percentage, #days-passed, #days-remaining, [data-lang-key="totalDaysPrefix"], #total-days, [data-lang-key="totalDaysSuffix"], [data-lang-key="title"]')
-              .forEach((textEl) => {
-                const originalElement = document.getElementById(textEl.id) || document.querySelector(`[data-lang-key="${textEl.dataset.langKey}"]`);
-                if (!originalElement) return;
-                const originalStyle = window.getComputedStyle(originalElement);
-                Object.assign(textEl.style, {
-                  fontFamily: originalStyle.fontFamily,
-                  fontSize: originalStyle.fontSize,
-                  fontWeight: originalStyle.fontWeight,
-                  lineHeight: "normal",
-                  color: originalStyle.color,
-                  textAlign: originalStyle.textAlign,
-                });
-              });
+        clonedExportArea.style.backgroundColor = finalBgColor;
+
+        // Fix alignment for "总计 365 天"
+        const totalDaysPrefix = clonedExportArea.querySelector('[data-lang-key="totalDaysPrefix"]');
+        const totalDays = clonedExportArea.querySelector('#total-days');
+        const totalDaysSuffix = clonedExportArea.querySelector('[data-lang-key="totalDaysSuffix"]');
+
+        if (totalDaysPrefix && totalDays && totalDaysSuffix) {
+          // Wrap them in a flex container for alignment
+          const wrapper = clonedDoc.createElement('span');
+          wrapper.style.display = 'inline-flex';
+          wrapper.style.alignItems = 'center';
+          wrapper.style.justifyContent = 'center';
+          wrapper.style.gap = '2px';
+
+          totalDaysPrefix.parentNode.insertBefore(wrapper, totalDaysPrefix);
+          wrapper.appendChild(totalDaysPrefix);
+          wrapper.appendChild(totalDays);
+          wrapper.appendChild(totalDaysSuffix);
+
+          // Optionally, set font styles for consistency
+          [totalDaysPrefix, totalDays, totalDaysSuffix].forEach((el) => {
+            const originalElement = document.getElementById(el.id) || document.querySelector(`[data-lang-key="${el.dataset.langKey}"]`);
+            if (!originalElement) return;
+            const originalStyle = window.getComputedStyle(originalElement);
+            Object.assign(el.style, {
+          fontFamily: originalStyle.fontFamily,
+          fontSize: originalStyle.fontSize,
+          fontWeight: originalStyle.fontWeight,
+          lineHeight: "normal",
+          color: originalStyle.color,
+          textAlign: "center",
+            });
+          });
+        }
+
+        // Other text elements
+        clonedExportArea.querySelectorAll('#percentage, #days-passed, #days-remaining, [data-lang-key="title"]')
+          .forEach((textEl) => {
+            const originalElement = document.getElementById(textEl.id) || document.querySelector(`[data-lang-key="${textEl.dataset.langKey}"]`);
+            if (!originalElement) return;
+            const originalStyle = window.getComputedStyle(originalElement);
+            Object.assign(textEl.style, {
+          fontFamily: originalStyle.fontFamily,
+          fontSize: originalStyle.fontSize,
+          fontWeight: originalStyle.fontWeight,
+          lineHeight: "normal",
+          color: originalStyle.color,
+          textAlign: originalStyle.textAlign,
+            });
+          });
           }
         },
       });
