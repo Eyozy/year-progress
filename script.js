@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
         finalBgColor = window.getComputedStyle(document.body).backgroundColor;
       }
 
-      const optimalScale = Math.max(window.devicePixelRatio || 1, 3);
+      const optimalScale = Math.max(window.devicePixelRatio || 1, 4);
 
       const canvas = await html2canvas(exportArea, {
         useCORS: true,
