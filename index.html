@@ -31,15 +31,15 @@
   <link rel="icon" href="scr/favicon.svg" type="image/svg+xml">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
     integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="">
-  <div class="container">
+<body>
+  <main class="container">
     <div id="export-area" class="capture-area" role="region" aria-labelledby="progress-title">
       <h1 data-lang-key="title" class="title" id="progress-title">今年已过去</h1>
       <div id="percentage" aria-live="polite" aria-atomic="true">0.000000%</div>
@@ -114,8 +114,14 @@
         </button>
       </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+  </main>
+  <footer class="footer">
+    <p>
+      Created by <a href="https://github.com/Eyozy" target="_blank" rel="noopener noreferrer">Eyozy</a>. 
+      View source on <a href="https://github.com/Eyozy/year-progress" target="_blank" rel="noopener noreferrer">GitHub</a>.
+    </p>
+  </footer>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
