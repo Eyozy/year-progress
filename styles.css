@@ -240,7 +240,7 @@ html.dark .control-button svg {
 input[type="color"] {
   width: 40px;
   height: 40px;
-  border: none;
+  border: none !important;
   border-radius: 0.5rem;
   padding: 0;
   cursor: pointer;
@@ -249,6 +249,7 @@ input[type="color"] {
   -moz-appearance: none;
   background-color: transparent;
   transition: transform 0.15s ease-out;
+  outline: none !important;
 }
 
 input[type="color"]:hover {
@@ -257,10 +258,17 @@ input[type="color"]:hover {
 
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0;
+  border: none !important;
 }
 
 input[type="color"]::-webkit-color-swatch {
-  border: none;
+  border: none !important;
+  border-radius: 0.5rem;
+}
+
+/* Firefox support */
+input[type="color"]::-moz-color-swatch {
+  border: none !important;
   border-radius: 0.5rem;
 }
 
@@ -320,6 +328,21 @@ input[type="color"]::-webkit-color-swatch {
 
   .controls-container {
     gap: 0.75rem;
+  }
+
+  /* Mobile-specific color picker border removal */
+  input[type="color"] {
+    border: none !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  input[type="color"]::-webkit-color-swatch {
+    border: none !important;
+  }
+  
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    border: none !important;
   }
 }
 
