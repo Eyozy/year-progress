@@ -143,9 +143,9 @@ body {
   white-space: nowrap;
   width: 100%;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  gap: 0.25em;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.25em; 
 }
 
 /* --- Progress Bar --- */
