@@ -351,25 +351,41 @@ document.addEventListener("DOMContentLoaded", () => {
           wrapper.style.display = 'inline-flex';
           wrapper.style.alignItems = 'center';
           wrapper.style.justifyContent = 'center';
-          wrapper.style.gap = '2px';
+          wrapper.style.gap = '4px';
+          // Ensure wrapper sits correctly with surrounding text
+          wrapper.style.verticalAlign = 'middle';
+          wrapper.style.lineHeight = '1';
 
           totalDaysPrefix.parentNode.insertBefore(wrapper, totalDaysPrefix);
           wrapper.appendChild(totalDaysPrefix);
           wrapper.appendChild(totalDays);
           wrapper.appendChild(totalDaysSuffix);
 
-          // Optionally, set font styles for consistency
+          // Apply consistent text styles and align children to center baseline
           [totalDaysPrefix, totalDays, totalDaysSuffix].forEach((el) => {
-            const originalElement = document.getElementById(el.id) || document.querySelector(`[data-lang-key="${el.dataset.langKey}"]`);
-            if (!originalElement) return;
-            const originalStyle = window.getComputedStyle(originalElement);
+            // Find the corresponding original element in the live document to copy styles
+            const key = el.dataset.langKey;
+            const originalElement =
+              document.getElementById(el.id) ||
+              (key ? document.querySelector(`[data-lang-key="${key}"]`) : null);
+
+            const originalStyle = originalElement
+              ? window.getComputedStyle(originalElement)
+              : { fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', color: 'inherit', lineHeight: 'normal' };
+
+            // Make each child an inline-block and vertically centered
             Object.assign(el.style, {
-          fontFamily: originalStyle.fontFamily,
-          fontSize: originalStyle.fontSize,
-          fontWeight: originalStyle.fontWeight,
-          lineHeight: "normal",
-          color: originalStyle.color,
-          textAlign: "center",
+              display: 'inline-block',
+              verticalAlign: 'middle',
+              alignSelf: 'center',
+              fontFamily: originalStyle.fontFamily,
+              fontSize: originalStyle.fontSize,
+              fontWeight: originalStyle.fontWeight,
+              lineHeight: originalStyle.lineHeight === 'normal' ? '1' : originalStyle.lineHeight,
+              color: originalStyle.color,
+              textAlign: 'center',
+              margin: '0',
+              padding: '0',
             });
           });
         }
